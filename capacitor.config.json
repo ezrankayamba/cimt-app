@@ -1,0 +1,8 @@
+{
+  "appId": "io.ionic.starter",
+  "appName": "cimt-app",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "build",
+  "cordova": {}
+}
