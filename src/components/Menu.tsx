@@ -8,12 +8,23 @@ import {
   IonMenu,
   IonMenuToggle,
   IonNote,
-} from '@ionic/react';
-import React, { useContext } from 'react';
-import { withRouter } from 'react-router-dom';
-import { archiveOutline, archiveSharp, bookmarkOutline, heartOutline, heartSharp, mailOutline, mailSharp, paperPlaneOutline, paperPlaneSharp, trashOutline, trashSharp, warningOutline, warningSharp } from 'ionicons/icons';
-import './Menu.css';
-import { SimpleStore } from './SimpleStore';
+} from "@ionic/react";
+import React, { useContext } from "react";
+import { withRouter } from "react-router-dom";
+import {
+  cashOutline,
+  cashSharp,
+  homeOutline,
+  homeSharp,
+  documentOutline,
+  documentSharp,
+  walkOutline,
+  walkSharp,
+  peopleOutline,
+  peopleSharp,
+} from "ionicons/icons";
+import "./Menu.css";
+import { SimpleStore } from "./SimpleStore";
 
 interface AppPage {
   url: string;
@@ -24,75 +35,66 @@ interface AppPage {
 
 const appPages: AppPage[] = [
   {
-    title: 'Inbox',
-    url: '/page/Inbox',
-    iosIcon: mailOutline,
-    mdIcon: mailSharp
+    title: "Home",
+    url: "/page/home",
+    iosIcon: homeOutline,
+    mdIcon: homeSharp,
   },
   {
-    title: 'Outbox',
-    url: '/page/Outbox',
-    iosIcon: paperPlaneOutline,
-    mdIcon: paperPlaneSharp
+    title: "Cell Groups",
+    url: "/page/cell-groups",
+    iosIcon: peopleOutline,
+    mdIcon: peopleSharp,
   },
   {
-    title: 'Favorites',
-    url: '/page/Favorites',
-    iosIcon: heartOutline,
-    mdIcon: heartSharp
+    title: "Church",
+    url: "/page/church",
+    iosIcon: documentOutline,
+    mdIcon: documentSharp,
   },
   {
-    title: 'Archived',
-    url: '/page/Archived',
-    iosIcon: archiveOutline,
-    mdIcon: archiveSharp
+    title: "Finances",
+    url: "/page/finances",
+    iosIcon: cashOutline,
+    mdIcon: cashSharp,
   },
   {
-    title: 'Trash',
-    url: '/page/Trash',
-    iosIcon: trashOutline,
-    mdIcon: trashSharp
+    title: "Visitors",
+    url: "/page/visitors",
+    iosIcon: walkOutline,
+    mdIcon: walkSharp,
   },
-  {
-    title: 'Spam',
-    url: '/page/Spam',
-    iosIcon: warningOutline,
-    mdIcon: warningSharp
-  }
 ];
 
-const labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
+// const labels = ["Family", "Friends", "Notes", "Work", "Travel", "Reminders"];
 
 const Menu: React.FC = () => {
-
   const context = useContext(SimpleStore);
 
   return (
     <IonMenu contentId="main" type="overlay">
       <IonContent>
-        <IonList id="inbox-list">
-          <IonListHeader>Inbox</IonListHeader>
-          <IonNote>hi@ionicframework.com</IonNote>
+        <IonList id="menu-list">
+          <IonListHeader>Makoka TAG</IonListHeader>
+          <IonNote>ezrankayamba</IonNote>
           {appPages.map((appPage, index) => {
             return (
               <IonMenuToggle key={index} autoHide={false}>
-                <IonItem className={context.selectedPage === appPage.title ? 'selected' : ''} routerLink={appPage.url} routerDirection="none" lines="none" detail={false}>
+                <IonItem
+                  className={
+                    context.selectedPage === appPage.title ? "selected" : ""
+                  }
+                  routerLink={appPage.url}
+                  routerDirection="none"
+                  lines="none"
+                  detail={false}
+                >
                   <IonIcon slot="start" icon={appPage.iosIcon} />
                   <IonLabel>{appPage.title}</IonLabel>
                 </IonItem>
               </IonMenuToggle>
             );
           })}
-        </IonList>
-
-        <IonList id="labels-list">
-          <IonListHeader>Labels</IonListHeader>
-          {labels.map((label, index) => (
-            <IonItem lines="none" key={index}>
-              <IonIcon slot="start" icon={bookmarkOutline} />
-              <IonLabel>{label}</IonLabel>
-            </IonItem>
-          ))}
         </IonList>
       </IonContent>
     </IonMenu>

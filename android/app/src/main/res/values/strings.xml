@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">MakokaTAG</string>
+    <string name="title_activity_main">MakokaTAG</string>
+    <string name="package_name">tz.co.nezatech.apps.cimt</string>
+    <string name="custom_url_scheme">tz.co.nezatech.apps.cimt</string>
+</resources>
