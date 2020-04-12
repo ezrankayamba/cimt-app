@@ -37,6 +37,7 @@ import Church from "./pages/Church";
 import Visitors from "./pages/Visitors";
 import Platforms from "./__helpers/Platforms";
 import CellGroups from "./pages/CellGroups";
+import { CSSTransition } from "react-transition-group";
 
 const App: React.FC = () => {
   const [selectedPage, setSelectedPage] = useState("");
@@ -52,8 +53,11 @@ const App: React.FC = () => {
         <SimpleStore.Provider
           value={{ selectedPage, setSelectedPage, toggleSide }}
         >
-          <IonSplitPane contentId="main" side-max-width="200px" when={sideOpen}>
-            <Menu />
+          <IonSplitPane contentId="main" side-max-width="200px">
+            <CSSTransition classNames="sidebar" timeout={300} in={sideOpen}>
+              <Menu />
+            </CSSTransition>
+
             <IonRouterOutlet id="main">
               <IonPage>
                 <Switch>
