@@ -47,7 +47,7 @@ const Church: React.FC = () => {
         <IonSearchbar></IonSearchbar>
         <IonList lines="full">
           {members.map((m) => (
-            <IonItem detail>
+            <IonItem key={m.name} detail>
               <IonLabel>
                 <IonText>{m.name}</IonText>
                 <p>{m.cell}</p>

@@ -33,7 +33,7 @@ const Finances: React.FC = () => {
         <IonSearchbar></IonSearchbar>
         <IonList lines="full">
           {contribs.map((c) => (
-            <IonItem detail>
+            <IonItem key={c.name} detail>
               <IonLabel>
                 <IonText>{c.name}</IonText>
                 <p>

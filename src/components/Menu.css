@@ -113,34 +113,21 @@ ion-item.selected {
   --color: var(--ion-color-primary);
 }
 
-.sidebar-enter {
-  opacity: 0;
-  width: 0px;
-  transform: scale(0.9);
-}
+.sidebar-enter,
 .sidebar-enter-active {
-  opacity: 1;
-  width: 800px;
-  transform: translateX(0);
-  transition: opacity 300ms, transform 300ms;
-}
-.sidebar-enter-done {
+  transition: 300ms;
   width: auto;
 }
-.sidebar-exit {
-  opacity: 1;
-  width: auto;
-}
+
+.sidebar-exit,
 .sidebar-exit-active {
   opacity: 0;
-  transform: scale(0.9);
+  transition: 300ms;
   width: 0;
-  min-width: 0;
-  transition: width 300ms, opacity 300ms, transform 300ms;
 }
 .sidebar-exit-done {
-  width: 0;
   min-width: 0;
+  width: 0;
 }
 #menu-list {
   padding-top: 0;

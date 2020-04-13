@@ -1,14 +1,6 @@
 import Menu from "./components/Menu";
 import React, { useState } from "react";
-import {
-  IonApp,
-  IonRouterOutlet,
-  IonSplitPane,
-  IonPage,
-  IonContent,
-  IonThumbnail,
-  IonImg,
-} from "@ionic/react";
+import { IonApp, IonRouterOutlet, IonSplitPane, IonPage } from "@ionic/react";
 import { IonReactRouter } from "@ionic/react-router";
 import { Redirect, Route, Switch } from "react-router-dom";
 import { SimpleStore } from "./components/SimpleStore";
@@ -59,32 +51,38 @@ const App: React.FC = () => {
             </CSSTransition>
 
             <IonRouterOutlet id="main">
-              <IonPage>
-                <Switch>
-                  <Route path="/page/home" component={Home} exact={true} />
-                  <Route
-                    path="/page/cell-groups"
-                    component={CellGroups}
-                    exact={true}
-                  />
-                  <Route path="/page/church" component={Church} exact={true} />
-                  <Route
-                    path="/page/finances"
-                    component={Finances}
-                    exact={true}
-                  />
-                  <Route
-                    path="/page/visitors"
-                    component={Visitors}
-                    exact={true}
-                  />
-                  <Route
-                    path="/"
-                    render={() => <Redirect to="/page/home" />}
-                    exact={true}
-                  />
-                </Switch>
-              </IonPage>
+              <Switch>
+                <>
+                  <IonPage>
+                    <Route path="/page/home" component={Home} exact={true} />
+                    <Route
+                      path="/page/cell-groups"
+                      component={CellGroups}
+                      exact={true}
+                    />
+                    <Route
+                      path="/page/church"
+                      component={Church}
+                      exact={true}
+                    />
+                    <Route
+                      path="/page/finances"
+                      component={Finances}
+                      exact={true}
+                    />
+                    <Route
+                      path="/page/visitors"
+                      component={Visitors}
+                      exact={true}
+                    />
+                    <Route
+                      path="/"
+                      render={() => <Redirect to="/page/home" />}
+                      exact={true}
+                    />
+                  </IonPage>
+                </>
+              </Switch>
             </IonRouterOutlet>
           </IonSplitPane>
         </SimpleStore.Provider>

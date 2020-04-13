@@ -33,7 +33,7 @@ const Visitors: React.FC = () => {
         <IonSearchbar></IonSearchbar>
         <IonList lines="full">
           {visitors.map((v) => (
-            <IonItem detail>
+            <IonItem key={v.name} detail>
               <IonLabel>
                 <IonText>{v.name}</IonText>
                 <p>{v.from}</p>
